@@ -19,5 +19,12 @@ $ git push heroku
 ### Install Dependencies
 
 ```
+# macOS
 $ brew install rbenv vips postgresql
+```
+
+### Run in Docker
+```
+$ docker build -t burn .
+$ docker run --rm -p 5050:5050 burn
 ```
