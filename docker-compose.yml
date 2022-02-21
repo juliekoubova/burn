@@ -1,8 +1,0 @@
-services:
-  db:
-    image: postgres
-    volumes: [./tmp/db:/var/lib/postgresql/data]
-
-  app:
-    build: .
-    depends_on: [db]
