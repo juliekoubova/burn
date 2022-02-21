@@ -2,14 +2,14 @@ name: RuboCop
 on: [push, pull_request]
 
 jobs:
-  build:
+  RuboCop:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby 3.1
+    - name: Check out
+      uses: actions/checkout@v2
+    - name: Set up Ruby 3.1.1
       uses: ruby/setup-ruby@v1
-      with: { ruby-version: 3.1 }
+      with: { ruby-version: 3.1.1 }
     - name: Cache gems
       uses: actions/cache@v1
       with:
@@ -20,7 +20,6 @@ jobs:
     - name: Install gems
       run: |
         bundle config path vendor/bundle
-        bundle config set without 'default doc job cable storage ujs test db'
         bundle install --jobs 4 --retry 3
     - name: Run RuboCop
       run: bundle exec rubocop --parallel

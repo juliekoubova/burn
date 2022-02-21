@@ -2,3 +2,13 @@ require: standard
 
 inherit_gem:
   standard: config/base.yml
+
+inherit_mode:
+  merge:
+    - Exclude
+
+AllCops:
+  Exclude:
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+  NewCops: disable
